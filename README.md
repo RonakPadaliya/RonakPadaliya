@@ -72,7 +72,7 @@ I am a versatile Full Stack Engineer with more than 1 years of experience, succe
 ![](https://github-contributor-stats.vercel.app/api?username=RonakPadaliya&limit=4&theme=tokyonight&combine_all_yearly_contributions=true)
 
 ---
-[![](https://visitcount.itsvg.in/api?id=RonakPadaliya&icon=0&color=0)](https://visitcount.itsvg.in)
+[![](https://visitcount.itsvg.in/api?id=RonakPadaliya&icon=0&color=0)]()
 
 ------
 
