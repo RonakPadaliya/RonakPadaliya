@@ -1,0 +1,38 @@
+.sidebar-bottom {
+    position: absolute;
+  /* bottom: 5vh; */
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.cv-download-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.cv-download-btn i {
+    margin-right: 8px;
+}
+
+.navbar-download {
+    margin: 0 15px;
+    padding: 8px 20px !important;
+    color: white !important;
+}
+
+@media (max-width: 600px) {
+    .navbar-download {
+        margin: 10px 0;
+        text-align: center;
+    }
+}

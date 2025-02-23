@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="./Styles/tooltip.css">
+  <link rel="stylesheet" href="./Styles/project-skills.css">
+  <link rel="stylesheet" href="./Styles/timeline.css">
+  <link rel="stylesheet" href="./Styles/professional-skills.css">
+  <link rel="stylesheet" href="./Styles/achievements.css">
+  <link rel="stylesheet" href="./Styles/contact.css">
+  <link rel="stylesheet" href="./Styles/footer.css">
+  <link rel="stylesheet" href="./Styles/donwload-resume.css">
+
+    <style>
+      :root {
+        /* --primary-color: #ff0066; */
+        /* --primary-color: #a5a200; */
+        --primary-color: rgb(143, 0, 195);
+        /* --primary-color: #004AAD */
+
+
+      }
+
+      body {
+        background-color: #f8f9fc;
+        /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, 
+        sans-serif; */
+
+        font-family: "Segoe UI";
+      }
+
+      .navbar {
+        background-color: white;
+        padding: 1rem 2rem;
+      }
+
+      .navbar-brand img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .nav-link {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        color: #333;
+        padding: 0.5rem 1rem !important;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      .buy-now {
+        color: var(--primary-color) !important;
+        font-weight: bold;
+      }
+
+      .sidebar {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        width: 300px;
+        height: 100vh;
+        background-color: #f8f9fc;
+        transition: 0.3s;
+        padding: 2rem;
+        z-index: 1050;
+      }
+
+      .sidebar.active {
+        left: 0;
+      }
+
+      /* .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        } */
+
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: white;
+        border: none;
+        color: var(--primary-color);
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        /* transition: all 0.3s ease; */
+      }
+
+      .close-btn:hover {
+        /* transform: rotate(90deg); */
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .sidebar-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .sidebar-header img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      .mobile-nav {
+        list-style: none;
+        padding: 0;
+      }
+
+      .mobile-nav li {
+        margin-bottom: 1rem;
+      }
+
+      .mobile-nav a {
+        text-decoration: none;
+        color: #333;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .social-links {
+        position: absolute;
+        bottom: 2rem;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--primary-color);
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 1040;
+      }
+
+      .hero {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+      }
+
+      .welcome-text {
+        color: #333;
+        font-size: 1rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 5vw, 3rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .name-highlight {
+        color: var(--primary-color);
+      }
+
+      .hero-description {
+        color: #666;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .hero-image {
+        position: relative;
+        max-width: 450px;
+        margin: 0 auto;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      @media (max-width: 768px) {
+        .hero-image {
+          max-width: 100%;
+          margin-bottom: 2rem;
+        }
+
+        .hero-content {
+          text-align: left;
+        }
+      }
+
+      .typewriter {
+        display: flex;
+        align-items: center;
+      }
+
+      .cursor {
+        color: var(--primary-color);
+        font-weight: 100;
+        animation: blink 0.7s infinite;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .button-section {
+        margin-top: 3.5rem;
+      }
+
+      .section-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: #1e2125;
+        margin-bottom: 1.5rem;
+      }
+
+      .button-grid {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .social-button,
+      .skill-button {
+        width: 60px;
+        height: 60px;
+        background: white;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #1e2125;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .social-button-image,
+      .skill-button-image {
+        width: 28px;
+        height: 28px;
+      }
+
+      .social-button:hover,
+      .skill-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .skill-button.invision {
+        color: var(--primary-color);
+      }
+
+      .skill-button.sketch {
+        color: #ffb800;
+      }
+
+      .skill-button.figma {
+        color: #00c7f4;
+      }
+
+      .portfolio-section {
+        padding: 6rem 0;
+        background-color: #f8f9fc;
+      }
+
+      .portfolio-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .portfolio-title {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      .portfolio-subtitle {
+        color: var(--primary-color);
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .portfolio-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+        background: linear-gradient(135deg, #e2e8ec, white);
+      }
+
+      /* .portfolio-card:hover {
+        transform: translateY(-10px);
+      } */
+
+      .portfolio-image-container{
+
+        margin: 5%;
+        overflow: hidden;
+        border-radius: 20px;
+
+      }
+
+      .portfolio-image {
+
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+
+      }
+
+      .portfolio-image-container:hover .portfolio-image {
+
+    transform: scale(1.1); /* You can adjust the scale value between 1.1 to 1.3 for desired zoom level */
+}
+
+      .portfolio-content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .portfolio-category {
+        color: var(--primary-color);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+        flex-grow: 1;
+      }
+
+      .portfolio-card-title {
+        font-size: 1.25rem;
+        margin-bottom: 0;
+        color: #333;
+        flex: 1;
+      }
+
+      .like-button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #666;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+      .like-count {
+        color: #333;
+        font-weight: 500;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .portfolio-card {
+          margin-bottom: 1.5rem;
+        }
+
+        .portfolio-title {
+          font-size: 2rem;
+        }
+
+        .navbar {
+          padding: 0.5rem 1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .portfolio-image {
+          height: 200px;
+        }
+
+        .portfolio-content {
+          padding: 1rem;
+        }
+
+        .portfolio-card-title {
+          font-size: 1.1rem;
+        }
+      }
+
+      .title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        /* top: 0; */
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        z-index: 2000;
+        overflow-y: auto;
+      }
+
+      .modal-content {
+        /* padding: 3rem; */
+
+        background: white;
+        width: 90%;
+        max-width: 1200px;
+        margin: 50px auto;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        /* background: linear-gradient(135deg, #d6dbe0, white); */
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: white;
+        border: none;
+        color: var(--primary-color);
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        /* transition: all 0.3s ease; */
+      }
+
+      .modal-close:hover {
+        /* transform: rotate(90deg); */
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .modal-image-container {
+        /* Center alignment styles */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Padding and spacing */
+        padding: 2rem;
+        margin: 0 auto;
+
+        /* Container size management */
+        max-width: 1200px;
+        width: 100%;
+      }
+
+      .modal-image-container img {
+        /* Image responsive styles */
+        max-width: 100%;
+        height: auto;
+
+        /* Optional: add a minimum height if needed */
+        min-height: 300px;
+
+        /* Optional: maintain aspect ratio */
+        object-fit: contain;
+
+        /* Optional: add some breathing room around the image */
+        padding: 1rem;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .modal-image-container {
+          padding: 1rem;
+        }
+
+        .modal-image-container img {
+          min-height: 200px;
+        }
+      }
+
+      .modal-image {
+        width: 100%;
+        /* height: 100%; */
+        /* object-fit: cover; */
+      }
+
+      .modal-body {
+        padding: 2rem;
+        background: white;
+        /* margin-top: -60px; */
+        border-radius: 20px 20px 0 0;
+        /* position: relative; */
+      }
+
+      .modal-category {
+        color: var(--primary-color);
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .modal-title {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: #1e2125;
+        font-weight: 600;
+      }
+
+      .modal-description {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .modal-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+
+      }
+
+      .modal-button {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 500;
+        transition: transform 0.2s;
+
+      }
+
+      @media screen and (max-width: 768px) {
+  .modal-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    width: 100%; /* Full width container */
+  }
+
+  .modal-button,
+  .like-button-model,
+  .view-project-button {
+    width: 100%; /* Full width buttons */
+    justify-content: center; /* Center button content */
+  }
+}
+
+.project-details-row {
+  display: flex;
+  width: 100%;
+}
+
+.project-details-column {
+  flex: 1;
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .project-details-row {
+    flex-direction: column; /* Stack columns vertically */
+  }
+  
+  .project-details-column {
+    width: 100%;
+  }
+
+  .modal-body {
+    padding: 1.5rem; /* Slightly reduced padding for mobile */
+  }
+}
+
+      .modal-button:hover {
+        transform: translateY(-2px);
+      }
+
+      
+
+      /* .like-button-modal {
+            background: #f8f9fc;
+            color: #333;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+
+        } */
+
+      .like-button-model {
+        /* Base button styles */
+        background-color: white;
+        color: var(--primary-color);
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+
+        /* Button hover effect */
+        &:hover {
+          background-color: var(--primary-color);
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Button active/click effect */
+        &:active {
+          transform: translateY(0);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Thumbs up icon styles */
+        .thumb-icon {
+          width: 20px;
+          height: 20px;
+          fill: currentColor;
+        }
+      }
+
+      .view-project-button {
+        background: var(--primary-color);
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      .tabs-container {
+        width: 100%;
+        /* max-width: 1200px; */
+        margin: 0 auto;
+        
+      }
+
+      .tabs {
+        display: flex;
+        list-style: none;
+        /* gap: 4px; */
+        margin-bottom: 20px;
+      }
+
+      .tab {
+        flex: 1;
+        padding: 25px 24px;
+        cursor: pointer;
+        background-color: white;
+        /* border-radius: 8px; */
+        font-size: 16px;
+        transition: all 0.3s ease;
+        color: #333;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tab:first-child {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+
+      .tab:last-child {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+
+      .tab:hover {
+        background-color: #fafafa;
+      }
+
+      .tab.active {
+        color: var(--primary-color);
+        font-weight: 500;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+      }
+
+      .tab-content {
+        padding: 20px 0;
+        /* background: white; */
+        /* border-radius: 12px; */
+        display: none;
+        /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
+        min-height: 200px;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        body {
+          padding: 0;
+        }
+
+        .tabs-container {
+          /* background: white; */
+          width: 100%;
+          border-radius: 12px;
+          /* padding: 16px; */
+        }
+
+        .tabs {
+          flex-direction: column;
+          gap: 0;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab {
+          width: 100%;
+          text-align: left;
+          padding: 12px 20px;
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        .tab.active {
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+          position: relative;
+          z-index: 2;
+        }
+
+        .tab:first-child {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+
+        .tab:last-child {
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+
+        .tab-content {
+          margin-top: 12px;
+          box-shadow: none;
+        }
+      }
+
+      
+
+      
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Desktop Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="./Photos/Ronak.jpg" alt="Logo" />
+          <span>RONAK</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" id="hamburger">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link"  href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects" onclick="scrollToHeader(event, '#projects')">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#resume" onclick="scrollToHeader(event, '#resume')">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#achievements" onclick="scrollToHeader(event, '#achievements')">Achievements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" onclick="scrollToHeader(event, '#contact')">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link cv-download-btn navbar-download" href="Document/Ronak Padaliya.pdf" download>
+                <i class="fas fa-download"></i> Resume
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar">
+      <!-- <button class="close-btn">×</button> -->
+      <button class="close-btn">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="sidebar-header">
+        <img src="./Photos/Ronak.jpg" alt="Profile" />
+        <span>RONAK</span>
+      </div>
+      <!-- <p class="sidebar-description">
+        Inbio is a personal portfolio template. You can customize all.
+      </p> -->
+
+      <ul class="mobile-nav">
+        <li><a  href="#">Home</a></li>
+        <li><a href="#projects" onclick="scrollToHeader(event, '#projects')">Projects</a></li>
+        <li><a href="#resume" onclick="scrollToHeader(event, '#resume')">Resume</a></li>
+        <li><a href="#achievements" onclick="scrollToHeader(event, '#achievements')">Achievements</a></li>
+        <li><a href="#contact" onclick="scrollToHeader(event, '#contact')">Contact</a></li>
+      </ul>
+
+      <div class="sidebar-bottom">
+        <a href="Document/Ronak Padaliya.pdf" download class="cv-download-btn text-uppercase">
+          <i class="fas fa-download"></i> Resume
+        </a>
+      </div>
+
+      <!-- <div class="social-links">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">i</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div> -->
+    </div>
+
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <main class="hero">
+      <div class="container">
+        <div class="row align-items-center" id="home">
+          <div class="col-lg-6 order-lg-1 order-2">
+            <div class="hero-content">
+              <p class="welcome-text">WELCOME TO MY WORLD</p>
+              <h1 class="hero-title">
+                Hi, I'm <span class="name-highlight">Ronak Padaliya</span><br />
+                <span style="font-size: clamp(2rem, 5vw, 2.5rem)"
+                  ><span class="name-highlight">a</span>
+                  <span class="text"></span> <span class="cursor">|</span></span
+                >
+              </h1>
+              <p class="hero-description" style="text-align: justify;">
+                As a passionate and results-driven software developer, I specialize in crafting innovative, scalable, and user-centric solutions that solve real-world problems.
+                <br/>
+                I have a proven track record of delivering high-quality projects, from concept to deployment, while collaborating with cross-functional teams to meet tight deadlines and exceed expectations.
+                <br/>
+                Let’s connect and build something extraordinary together!
+              </p>
+
+              <div class="button-section">
+                <h2 class="section-title">FIND WITH ME</h2>
+                <div class="button-grid">
+                  <div class="tooltip-container">
+                    <a class="social-button invision" target="_blank" href="https://www.linkedin.com/in/ronakpadaliya/">
+                      <img src="./Photos/linkedin.svg" alt="LinkedIn"  class="social-button-image">
+                    </a>
+                    <span class="tooltip-text">LinkedIn</span>
+                  </div>
+
+                  <div class="tooltip-container">
+                    <a class="social-button invision" target="_blank" href="https://github.com/RonakPadaliya">
+                      <img src="./Photos/github.svg" alt="GitHub"  class="social-button-image">
+                    </a>
+                    <span class="tooltip-text">GitHub</span>
+                  </div>
+
+                  <!-- <button class="social-button">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+                  <button class="social-button">
+                    <i class="fab fa-instagram"></i>
+                  </button>
+                  <button class="social-button">
+                    <i class="fab fa-linkedin-in"></i>
+                  </button> -->
+                </div>
+
+                <h2 class="section-title">BEST SKILL ON</h2>
+                <div class="button-grid">
+                  <div class="tooltip-container">
+                    <a class="skill-button invision" target="_blank" href="https://leetcode.com/ronakpadaliya">
+                      <!-- <i class="fab fa-invision"></i> -->
+                      <img src="./Photos/leetcode.svg" alt="LeetCode" class="skill-button-image">
+                    </a>
+                    <span class="tooltip-text">Leetcode</span>
+                  </div>
+                  <div class="tooltip-container">
+                    <a class="skill-button sketch" target="_blank" href="https://www.codechef.com/users/ronak187">
+                      <!-- <i class="fas fa-bezier-curve"></i> -->
+                      <img src="./Photos/codechef.svg" alt="CodeChef" class="skill-button-image">
+                    </a>
+                    <span class="tooltip-text">CodeChef</span>
+                  </div>
+                  <div class="tooltip-container">
+                    <a class="skill-button figma" target="_blank" href="https://www.hackerrank.com/ronakpadaliya77">
+                      <!-- <i class="fab fa-figma"></i> -->
+                      <img src="./Photos/hackerrank.svg" alt="HackerRank" class="skill-button-image">
+                    </a>
+                    <span class="tooltip-text">HackerRank</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-2 order-1">
+            <div class="hero-image">
+              <img src="./Photos/Ronak.jpg" alt="Professional portrait" />
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="row" id="projects">
+          <div class="col my-5 text-center">
+            <p style="color: var(--primary-color); font-size: 16px" >
+              Visit my Projects
+            </p>
+            <h1><b>My Projects</b></h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Portfolio Card 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="portfolio-card">
+              <div class="portfolio-image-container">
+
+                <img
+                src="./Photos/project1.png"
+                alt="Development Project"
+                class="portfolio-image"
+                />
+              </div>
+              <div class="portfolio-content">
+                <div class="title-row">
+                  <p class="portfolio-category">Machine Learning</p>
+                  <div class="like-button">
+                    <i class="far fa-heart"></i>
+                    <span class="like-count">600</span>
+                  </div>
+                </div>
+                <h3 class="portfolio-card-title">
+                  News Categorization System
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Card 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="portfolio-card">
+              <div class="portfolio-image-container">
+
+              <img
+                src="./Photos/project2.png"
+                alt="Application Design"
+                class="portfolio-image"
+              />
+              </div>
+              <div class="portfolio-content">
+                <div class="title-row">
+                  <p class="portfolio-category">Application</p>
+                  <div class="like-button">
+                    <i class="far fa-heart"></i>
+                    <span class="like-count">600</span>
+                  </div>
+                </div>
+                <h3 class="portfolio-card-title">Movie Rating System</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio Card 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="portfolio-card">
+              <div class="portfolio-image-container">
+
+              <img
+                src="./Photos/project3.png"
+                alt="Photoshop Design"
+                class="portfolio-image"
+              />
+              </div>
+              <div class="portfolio-content">
+                <div class="title-row">
+                  <p class="portfolio-category">Application</p>
+                  <div class="like-button">
+                    <i class="far fa-heart"></i>
+                    <span class="like-count">600</span>
+                  </div>
+                </div>
+                <h3 class="portfolio-card-title">
+                  Restaurant Review System
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="mt-5" />
+
+        <div class="row" id="resume">
+          <div class="col my-5 text-center">
+            <p style="color: var(--primary-color); font-size: 16px">
+              <b><span id="totalYearsofExperience"></span>+</b> Years of Experience
+            </p>
+            <h1><b>My Resume</b></h1>
+          </div>
+        </div>
+
+        <div class="tabs-container">
+          <ul class="tabs" style="padding: 0">
+            <li class="tab active" data-tab="education">Education</li>
+            <li class="tab" data-tab="experience">Experience</li>
+            <li class="tab" data-tab="skills">Professional Skills</li>
+          </ul>
+
+          <div class="tab-content active" id="education">
+            <h2 class="mb-5 text-center">Education</h2>
+            <div class="timeline">
+              <div class="timeline-container left">
+                <div class="content">
+                  <!-- <h2>2023</h2> -->
+                  <div class="timeline-year timeline-year-left">2019 - 2023</div>
+                  <br/>
+                  <h4 style="font-size: clamp(1.2rem, 2vw, 2rem)">
+                    Dharmsing Desai University
+                  </h4>
+                  <h6 class="timeline-item-specification"
+                    style="font-size: clamp(0.9rem, 1.1vw, 1.5rem); "
+                  >
+                    Bachelor of Technology (Computer Engineering)
+                  </h6>
+                  <p style="font-size: clamp(0.8rem, 1vw, 2rem)">
+                    <b>CGPA:</b> 8.25/10
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-container right">
+                <div class="content">
+                  <div class="timeline-year timeline-year-right">2018 - 2019</div>
+                  <br/>
+                  <h4 style="font-size: clamp(1.2rem, 2vw, 2rem)">
+                    Shree Sandipani Vidhya Sankul
+                  </h4>
+                  <h6 class="timeline-item-specification"
+                    style="font-size: clamp(0.9rem, 1.1vw, 1.5rem);"
+                  >
+                    Higher Secondary (Science Stream)
+                  </h6>
+                  <p style="font-size: clamp(0.8rem, 1vw, 2rem)">
+                    <b>Percentage :</b> 92%
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="skills">
+            <h2 class="mb-5 text-center">Professional Skills Content</h2>
+
+            <h4 style="color: #666;">Languages</h4>
+
+            <div class="professional-skill-container">
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/c.svg" alt="C">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>C</p>
+                    </div>
+                </div>
+              </div>
+              
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/c++.svg" alt="C++">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>C++</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/csharp.svg" alt="C#">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>C#</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/javascript.svg" alt="JavaScript">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>JavaScript</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/python.svg" alt="Python">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>Python</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/sql.svg" alt="SQL">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>SQL</p>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+            <h4 style="color: #666;">Technologies</h4>
+            
+            <div class="professional-skill-container">          
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/microsoft-dot-net.svg" alt="Microsoft-DotNet">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>.Net</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/angular.svg" alt="Angular">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>Angular</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/react.svg" alt="React">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>React</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/nodejs.svg" alt="NodeJS">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>NodeJS</p>
+                    </div>
+                </div>
+              </div>
+
+              <div class="professional-skill">
+                <div class="professional-skill-image-section">
+                    <div class="professional-skill-image">
+                        <img src="./Photos/envoy.svg" alt="Envoy">
+                    </div>
+                </div>
+                <div class="professional-skill-name-section">
+                    <div class="professional-skill-name">
+                        <p>Envoy</p>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="tab-content" id="experience">
+            <h2 class="mb-5 text-center">Experience</h2>
+            <div class="timeline">
+              <div class="timeline-container left">
+                <div class="content">
+                  <!-- <h2>2023</h2> -->
+                  <div class="timeline-year timeline-year-left">06/2023 - Present</div>
+                  <br/>
+                  <h4 style="font-size: clamp(1.2rem, 2vw, 2rem)">
+                    Confidosoft Solutions Pvt Ltd
+                  </h4>
+                  <h6 class="timeline-item-specification"
+                    style="font-size: clamp(0.9rem, 1.2vw, 1.5rem);"
+                  >
+                    Junior Software Developer
+                  </h6>
+                  <p style="font-size: clamp(0.8rem, 1vw, 2rem)">
+                    <ul>
+                      <li>Refactoring the current codebase while transitioning from .NET Framework to .NET Core, leading to enhanced efficiency and scalability.</li>
+                      <li>Implemented WCF Service using various binding types.</li>
+                      <li>Created a prototype of an API gateway using Envoy to boost system performance.</li>
+                      <li>Implemented features for caching, routing, authentication, logging, compression, and other functionalities within the API gateway.</li>
+                      <li>Additionally, wrote effective unit and integration test cases for the refactored adapters and pipeline steps of NeuronESB.</li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-container right">
+                <div class="content">
+                  <div class="timeline-year timeline-year-right">12/2022 - 05/2023</div>
+                  <br/>
+                  <h4 style="font-size: clamp(1.2rem, 2vw, 2rem)">
+                    Confidosoft Solutions Pvt Ltd
+                  </h4>
+                  <h6 class="timeline-item-specification"
+                    style="font-size: clamp(0.9rem, 1.2vw, 1.5rem);"
+                  >
+                    Software Developer Intern
+                  </h6>
+                  <p style="font-size: clamp(0.8rem, 1vw, 2rem)">
+                    <ul>
+                      <li>Developed an Integration Solution to seamlessly connect Enterprise Resource Planning (ERP) with Product Lifecycle Management (PLM) using NeuronESB, a cutting-edge Integration Platform built on the .NET Framework.</li>
+                      <li>Spearheaded the creation of a streamlined process for message transformation, enabling seamless conversion from one data type to another.</li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <hr class="mt-5" />
+
+        <div class="row" id="achievements">
+          <div class="col my-5 text-center">
+            <p style="color: var(--primary-color); font-size: 16px">
+              Celebrating milestones that showcase my growth and success.
+            </p>
+            <h1><b>Achievements</b></h1>
+          </div>
+        </div>
+
+        <div class="achievements-grid">
+          <!-- DSA Achievement -->
+          <div class="achievement-card dsa">
+            <div class="achievement-card-header">
+              <div class="sparkle"></div>
+              <div class="achievement-icon">💻</div>
+              <div class="achievement-badge badge-elite">Master</div>
+            </div>
+            <div class="achievement-card-body">
+              <h3 class="achievement-title">DSA Problem Solver</h3>
+              <p class="achievement-desc">Successfully solved over 500 Data Structures and Algorithms problems across various competitive programming platforms.</p>
+              <div class="achievement-stats">
+                <div class="stat">
+                  <div class="stat-value">500+</div>
+                  <div class="stat-label">Problems</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">Multiple</div>
+                  <div class="stat-label">Platforms</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">Elite</div>
+                  <div class="stat-label">Status</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ICPC Achievement -->
+          <div class="achievement-card icpc">
+            <div class="achievement-card-header">
+              <div class="sparkle"></div>
+              <div class="achievement-icon">🌏</div>
+              <div class="achievement-badge badge-advanced">Regional</div>
+            </div>
+            <div class="achievement-card-body">
+              <h3 class="achievement-title">ICPC Contestant</h3>
+              <p class="achievement-desc">Completed Asia Amritapuri First Round Online Programming Contest (International Collegiate Programming Contest - August 7, 2021).</p>
+              <div class="achievement-stats">
+                <div class="stat">
+                  <div class="stat-value">Asia</div>
+                  <div class="stat-label">Region</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">Aug 2021</div>
+                  <div class="stat-label">Date</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">Amritapuri</div>
+                  <div class="stat-label">Site</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- CodeChef Ranking Achievement -->
+          <div class="achievement-card codechef">
+            <div class="achievement-card-header">
+              <div class="sparkle"></div>
+              <div class="achievement-icon">🏆</div>
+              <div class="achievement-badge badge-advanced">Top 20%</div>
+            </div>
+            <div class="achievement-card-body">
+              <h3 class="achievement-title">CodeChef Starters Ranking</h3>
+              <p class="achievement-desc">Achieved 219th rank out of 1,300+ participants in CodeChef Starters 44 contest, placing in the top 17% of competitors.</p>
+              <div class="achievement-stats">
+                <div class="stat">
+                  <div class="stat-value">219th</div>
+                  <div class="stat-label">Rank</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">1,300+</div>
+                  <div class="stat-label">Participants</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">Top 17%</div>
+                  <div class="stat-label">Percentile</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- HackerRank Achievement -->
+          <div class="achievement-card hackerrank">
+            <div class="achievement-card-header">
+              <div class="sparkle"></div>
+              <div class="achievement-icon">⭐</div>
+              <div class="achievement-badge badge-intermediate">5 Stars</div>
+            </div>
+            <div class="achievement-card-body">
+              <h3 class="achievement-title">HackerRank Star Solver</h3>
+              <p class="achievement-desc">Earned 5 stars in Problem Solving on HackerRank, demonstrating proficiency in algorithms and data structures.</p>
+              <div class="achievement-stats">
+                <div class="stat">
+                  <div class="stat-value">5</div>
+                  <div class="stat-label">Stars</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">Problem</div>
+                  <div class="stat-label">Category</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">Advanced</div>
+                  <div class="stat-label">Level</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- CodeChef Rating Achievement -->
+          <div class="achievement-card codechef-rating">
+            <div class="achievement-card-header">
+              <div class="sparkle"></div>
+              <div class="achievement-icon">🌟</div>
+              <div class="achievement-badge badge-intermediate">3 Stars</div>
+            </div>
+            <div class="achievement-card-body">
+              <h3 class="achievement-title">CodeChef Rating Milestone</h3>
+              <p class="achievement-desc">Reached a maximum rating of 1723 on CodeChef, earning 3 Star status and demonstrating consistent performance in contests.</p>
+              <div class="achievement-stats">
+                <div class="stat">
+                  <div class="stat-value">1723</div>
+                  <div class="stat-label">Max Rating</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">3 Star</div>
+                  <div class="stat-label">Status</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-value">CodeChef</div>
+                  <div class="stat-label">Platform</div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+
+        <hr class="mt-5" />
+
+        <div class="row" id="contact">
+          <div class="col my-5 text-center">
+            <p style="color: var(--primary-color); font-size: 16px">
+              Let's Connect and Build Something Amazing Together
+            </p>
+            <h1><b>Connect With Me</b></h1>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+          <div class="contact-container">
+            <div class="profile-card">
+              <div class="handshake-img-container">
+                <img src="./Photos/handshack.png" alt="Handshake" class="handshake-img">
+              </div>
+              <div class="profile-info">
+                <h2>Ronak Padaliya</h2>
+                <h3>Full Stack Developer</h3>
+                <p>I am available for freelance work. Connect with me via and call in to my account.</p>
+                <ul class="contact-details">
+                  <li><i class="fas fa-phone"></i>+91 9876543210</li>
+                  <li><i class="fas fa-envelope"></i>ronakpadaliya77@gmail.com</li>
+                  <li><i class="fas fa-map-marker-alt"></i>Rajkot, India</li>
+                </ul>
+              </div>
+            </div>
+            <div class="contact-form">
+              <form id="contactForm">
+                <div class="form-group">
+                  <label class="form-label">Name</label>
+                  <input type="text" class="form-input" placeholder="Your name" id="name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-input" placeholder="Your email" id="email" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Subject</label>
+                  <input type="text" class="form-input" placeholder="Subject" id="subject" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Message</label>
+                  <textarea class="form-input" placeholder="Your message" id="message" required></textarea>
+                </div>
+                <div class="submit-container">
+                  <button type="submit" class="submit-btn" onclick="sendEmail()">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <hr class="mt-5" />
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-logo">
+            <img src="./Photos/Ronak.jpg" alt="Logo">
+            <span class="logo-text">RONAK PADALIYA</span>
+          </div>
+          <div class="footer-copyright">
+            &copy; 2022. All rights reserved.
+          </div>
+        </footer>
+
+      </div>
+
+    </main>
+
+    
+
+    <div id="projectModal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="row project-details-row g-0">
+          <div class="col modal-image-container project-details-column">
+            <img class="modal-image" src="" alt="Project preview" />
+          </div>
+          <div class="col project-details-column">
+            <div class="modal-body">
+              <p class="modal-category">DEVELOPMENT</p>
+              <h2 class="modal-title">The services provide for design</h2>
+              <p class="modal-description"> </p>
+              <h6 style="color: #1e2125;"><b>Used Technologies:</b></h6>
+              <div id="project-skills" class="project-skills-container"> </div>
+              <div class="modal-buttons">
+                <button class=" modal-button like-button-model">
+                  <svg class="thumb-icon" viewBox="0 0 24 24">
+                    <path
+                      d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
+                    />
+                  </svg>
+                  LIKE THIS
+                </button>
+                <a href="#" target="_blank" class="modal-button view-project-button">
+                  VIEW PROJECT
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-skills-container" id="project1-skills" style="display: none;">
+      <span class="project-skill reactjs"><i class="fab fa-react"></i> ReactJS</span>
+      <span class="project-skill django"><i class="fab fa-python"></i> Django</span>
+      <span class="project-skill python"><i class="fab fa-python"></i> Python</span>
+    </div>
+
+    <div class="project-skills-container" id="project2-skills" style="display: none;">
+      <span class="project-skill reactjs"><i class="fab fa-react"></i> ReactJS</span>
+      <span class="project-skill nodejs"><i class="fab fa-node-js"></i> NodeJS</span>
+      <span class="project-skill mongodb"><i class="fas fa-database"></i> MongoDB</span>
+    </div>
+
+    <div class="project-skills-container" id="project3-skills" style="display: none;">
+      <span class="project-skill dotnet"><i class="fab fa-microsoft"></i> .NET Framework</span>
+      <span class="project-skill wcf"><i class="fas fa-cogs"></i> WCF Service</span>
+      <span class="project-skill mssql"><i class="fas fa-database"></i> MSSQL</span>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successSendEmailModal" class="send-email-modal success-send-email-modal">
+      <div class="send-email-modal-content">
+          <!-- <span class="close-send-email-modal" onclick="closeSendEmailModal('successSendEmailModal')">&times;</span> -->
+          <button class="modal-close" onclick="closeSendEmailModal('successSendEmailModal')">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="send-email-modal-icon">✓</div>
+          <h2>Success!</h2>
+          <p class="send-email-modal-message">Your message has been sent successfully.</p>
+          <button class="send-email-modal-button" onclick="closeSendEmailModal('successSendEmailModal')">Got it!</button>
+      </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div id="errorSendEmailModal" class="send-email-modal error-send-email-modal">
+      <div class="send-email-modal-content">
+          <!-- <span class="close-send-email-modal" onclick="closeSendEmailModal('errorSendEmailModal')">&times;</span> -->
+          <button class="modal-close" onclick="closeSendEmailModal('errorSendEmailModal')">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="send-email-modal-icon">✕</div>
+          <h2>Oops!</h2>
+          <p class="send-email-modal-message">Something went wrong. Please try again later.</p>
+          <button class="send-email-modal-button" onclick="closeSendEmailModal('errorSendEmailModal')">Try Again</button>
+      </div>
+  </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const hamburger = document.querySelector("#hamburger");
+      const sidebar = document.querySelector(".sidebar");
+      const closeBtn = document.querySelector(".close-btn");
+      const overlay = document.querySelector(".overlay");
+
+      function openSidebar() {
+        sidebar.classList.add("active");
+        overlay.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeSidebar() {
+        sidebar.classList.remove("active");
+        overlay.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      hamburger.addEventListener("click", openSidebar);
+      closeBtn.addEventListener("click", closeSidebar);
+      overlay.addEventListener("click", closeSidebar);
+
+      // Close sidebar when clicking a link
+      const mobileLinks = document.querySelectorAll(".mobile-nav a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", closeSidebar);
+      });
+
+      const textElement = document.querySelector(".text");
+      const phrases = ["Professional Coder.", "Developer."];
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+        const currentPhrase = phrases[phraseIndex];
+        if (isDeleting) {
+          textElement.textContent = currentPhrase.substring(0, charIndex--);
+        } else {
+          textElement.textContent = currentPhrase.substring(0, charIndex++);
+        }
+
+        let typingSpeed = isDeleting ? 30 : 30;
+
+        if (!isDeleting && charIndex === currentPhrase.length + 1) {
+          typingSpeed = 1500; // Pause before deleting
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          // typingSpeed = 500; // Pause before starting the next word
+        }
+
+        setTimeout(typeEffect, typingSpeed);
+      }
+
+      typeEffect();
+      // Add this new modal functionality
+      const modal = document.getElementById("projectModal");
+      const portfolioCards = document.querySelectorAll(".portfolio-card");
+      const modalClose = document.querySelector(".modal-close");
+
+      function openModal(card) {
+        const image = card.querySelector(".portfolio-image").src;
+        const category = card.querySelector(".portfolio-category").textContent;
+        const title = card.querySelector(".portfolio-card-title").textContent;
+
+        modal.querySelector(".modal-image").src = image;
+        modal.querySelector(".modal-category").textContent = category;
+        modal.querySelector(".modal-title").textContent = title;
+        console.log("Title = ", title);
+        if(title.includes("News Categorization System")){
+          
+          modal.querySelector(".modal-description").innerHTML = "<ul><li>Create a News Classification Web Application using Machine Learning classification algorithms that classify and show news categories based on input news. </li> <li>Using public API and CSS we make our web application attractive and impressive.</li><li>Developed a prediction model using a dataset of 50,000 news articles, achieving an accuracy of <b>78.12%</b>. Categorized news into 10 different types.</li></ul>";
+
+          modal.querySelector(".view-project-button").href = "https://github.com/RonakPadaliya/News-Categorization-System";
+
+          document.getElementById("project-skills").innerHTML = document.getElementById("project1-skills").innerHTML;
+
+        }
+        else if(title.includes("Movie Rating System")){
+          
+          modal.querySelector(".modal-description").innerHTML = "<ul><li>This application is an online Movie rating and information collection system built to collect data about the public interest, from their reviews of movies and web shows.</li> <li>Create a UI by using public movies API.</li></ul>";
+
+          modal.querySelector(".view-project-button").href = "https://github.com/RonakPadaliya/Movie-Rating-System";
+
+          document.getElementById("project-skills").innerHTML = document.getElementById("project2-skills").innerHTML;
+
+        }
+        else if(title.includes("Restaurant Review System")){
+          
+          modal.querySelector(".modal-description").innerHTML = "<ul><li>Developed a web application that provides a facility for users to collect information about restaurants and get different reviews, such as food reviews, service reviews, parking reviews, and cleanliness reviews, for all different  restaurants.</li></ul>";
+
+          modal.querySelector(".view-project-button").href = "https://github.com/RonakPadaliya/RestaurantReviewSystem";
+
+          document.getElementById("project-skills").innerHTML = document.getElementById("project3-skills").innerHTML;
+
+        }
+
+        modal.style.display = "block";
+        document.body.classList.add("modal-open");
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open");
+      }
+
+      portfolioCards.forEach((card) => {
+        card.addEventListener("click", () => openModal(card));
+      });
+
+      modalClose.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.style.display === "block") {
+          closeModal();
+        }
+      });
+
+      /* ************ Set Years *************/
+
+      // Function to calculate the difference in years and months
+      function calculateDifference(targetYear, targetMonth) {
+        // Get the current date
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1; // Months are 0-indexed in JavaScript
+
+        // Calculate the difference in years and months
+        let yearDifference = currentYear - targetYear;
+        let monthDifference = currentMonth - targetMonth;
+
+        // Adjust if the current month is before the target month
+        if (monthDifference < 0) {
+          yearDifference--;
+          monthDifference += 12;
+        }
+
+        return { years: yearDifference, months: monthDifference };
+      }
+
+      // Define the target year and month
+      const targetYear = 2022;
+      const targetMonth = 12; // May
+
+      // Calculate the difference
+      const difference = calculateDifference(targetYear, targetMonth);
+      document.getElementById("totalYearsofExperience").textContent =
+        difference.years;
+
+      /* ************ My Resume Tab Switch *************/
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            // Remove active class from all tabs and contents
+            tabs.forEach((t) => t.classList.remove("active"));
+            contents.forEach((c) => c.classList.remove("active"));
+
+            // Add active class to clicked tab and corresponding content
+            tab.classList.add("active");
+            const contentId = tab.getAttribute("data-tab");
+            document.getElementById(contentId).classList.add("active");
+          });
+        });
+      });
+
+      function scrollToHeader(event, id) {
+        event.preventDefault();
+        const projectsSection = document.querySelector(id);
+        const offset = -70; // Adjust this value to control how far from the top you want to scroll
+
+        const targetPosition = projectsSection.getBoundingClientRect().top + window.pageYOffset + offset;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+
+        // Update URL without page reload
+        history.pushState(null, '', id);
+      }
+
+      // Handle browser back/forward buttons
+      window.addEventListener('popstate', function() {
+        const hash = window.location.hash;
+        if (hash) {
+          const section = document.querySelector(hash);
+          if (section) {
+            const offset = -70;
+            const targetPosition = section.getBoundingClientRect().top + window.pageYOffset + offset;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+
+      function showSendEmailModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            // Trigger reflow to ensure transition works
+            modal.offsetHeight;
+            modal.classList.add('show');
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    closeSendEmailModal(modalId);
+                }
+            }
+        }
+
+        function closeSendEmailModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+        const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            try {
+                const response = await fetch('https://send-mail-backend.up.railway.app/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    showSendEmailModal('successSendEmailModal');
+                    this.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                showSendEmailModal('errorSendEmailModal');
+                console.error('Error:', error);
+            }
+      });
+    </script>
+  </body>
+</html>

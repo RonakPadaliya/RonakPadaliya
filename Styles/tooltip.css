@@ -1,0 +1,66 @@
+/* Basic button styling */
+/* .tooltip-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    transition: background-color 0.3s ease;
+} */
+
+/* .tooltip-button:hover {
+    background-color: var(--primary-color);
+} */
+
+/* Tooltip container */
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip-text {
+    visibility: hidden;
+    width: 100px;
+    /* background: linear-gradient(135deg, #6c5ce7, var(--primary-color)); */
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the button */
+    left: 50%;
+    margin-left: -50px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Tooltip arrow */
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--primary-color) transparent transparent transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Show the tooltip text when hovering over the button */
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}

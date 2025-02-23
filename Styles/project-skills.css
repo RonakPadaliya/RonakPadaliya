@@ -1,0 +1,83 @@
+/* Skills container */
+.project-skills-container {
+  display: flex;
+  flex-wrap: wrap; /* Wrap skills to the next line if they don't fit */
+  gap: 10px; /* Space between skills */
+  /* padding: 0 20px 20px 20px; */
+  /* justify-content: center; Center skills horizontally */
+}
+
+/* Base skill styling */
+.project-skill {
+  color: white; /* White text */
+  padding: 8px 15px; /* Padding inside the skill element */
+  border-radius: 20px; /* Rounded corners */
+  font-size: 14px; /* Small font size */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  /* display: flex; */
+  align-items: center; /* Center icon and text vertically */
+  gap: 8px; /* Space between icon and text */
+}
+
+/* Skill-specific colors */
+.project-skill.reactjs {
+  background-color: #61dafb; /* ReactJS blue */
+  color: black; /* Dark text for better contrast */
+}
+
+.project-skill.django {
+  background-color: #092e20; /* Django green */
+}
+
+.project-skill.python {
+  background-color: #306998; /* Python blue */
+}
+
+.project-skill.nodejs {
+  background-color: #68a063; /* NodeJS green */
+}
+
+.project-skill.mongodb {
+  background-color: #4db33d; /* MongoDB green */
+}
+
+.project-skill.dotnet {
+  background-color: #512bd4; /* .NET Framework purple */
+}
+
+.project-skill.wcf {
+  background-color: #1382c2; /* WCF Service blue */
+}
+
+.project-skill.mssql {
+  background-color: #a91d22; /* MSSQL red */
+}
+
+/* Icon styling */
+.project-skill i {
+  font-size: 16px; /* Slightly larger icons */
+}
+
+/* Optional: Hover effect */
+.project-skill:hover {
+  opacity: 0.9; /* Slightly fade on hover */
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .project-skills-container {
+    gap: 8px; /* Reduce gap for smaller screens */
+    /* padding: 0 10px 10px 10px; */
+  }
+
+  .project-skill {
+    font-size: 12px; /* Smaller font size for mobile */
+    padding: 6px 12px; /* Smaller padding for mobile */
+  }
+
+  .project-skill i {
+    font-size: 14px; /* Smaller icons for mobile */
+  }
+}
