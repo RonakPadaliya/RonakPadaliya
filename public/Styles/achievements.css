@@ -1,0 +1,223 @@
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .achievements-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+.achievement-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-card-header {
+  height: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-card-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(0, 0, 0, 0.2) 100%);
+}
+
+.achievement-icon {
+  position: absolute;
+  bottom: -30px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  font-size: 30px;
+  z-index: 2;
+  background: #fff;
+}
+
+.achievement-card-body {
+  padding: 35px 25px 25px;
+}
+
+.achievement-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #2d3748;
+}
+
+.achievement-desc {
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.achievement-stats {
+  display: flex;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stat {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.stat-value {
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #2d3748;
+}
+
+.stat-label {
+  color: #718096;
+}
+
+.achievement-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.badge-elite {
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  color: #fff;
+}
+
+.badge-advanced {
+  background: linear-gradient(90deg, #4776e6, #8e54e9);
+  color: #fff;
+}
+
+.badge-intermediate {
+  background: linear-gradient(90deg, #2193b0, #6dd5ed);
+  color: #fff;
+}
+
+/* Achievement specific styles */
+.dsa .achievement-card-header {
+  background: linear-gradient(135deg, #5433ff, #20bdff);
+}
+
+.dsa .achievement-icon {
+  color: #5433ff;
+}
+
+.icpc .achievement-card-header {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+.icpc .achievement-icon {
+  color: #ff416c;
+}
+
+.codechef .achievement-card-header {
+  background: linear-gradient(135deg, #a17fe0, #5d26c1);
+}
+
+.codechef .achievement-icon {
+  color: #5d26c1;
+}
+
+.hackerrank .achievement-card-header {
+  background: linear-gradient(135deg, #0cebeb, #20e3b2, #29ffc6);
+}
+
+.hackerrank .achievement-icon {
+  color: #0cebeb;
+}
+
+.codechef-rating .achievement-card-header {
+  background: linear-gradient(135deg, #f5af19, #f12711);
+}
+
+.codechef-rating .achievement-icon {
+  color: #f12711;
+}
+
+/* Light sparkle effect */
+.sparkle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(2px 2px at 20px 30px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 40px 70px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 50px 160px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 90px 40px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 130px 80px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 160px 120px,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: sparkle 5s linear infinite;
+}
+
+.achievement-card:hover .sparkle {
+  opacity: 0.7;
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 0 200px, 50px 200px, 100px 200px, 150px 200px,
+      200px 200px, 250px 200px;
+  }
+}
